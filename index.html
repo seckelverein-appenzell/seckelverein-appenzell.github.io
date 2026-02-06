@@ -1,111 +1,78 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interaktiver Würfel</title>
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #2c3e50;
-      overflow: hidden;
-    }
-
-    .scene {
-      width: 100px;
-      height: 100px;
-      perspective: 600px;
-      cursor: pointer;
-    }
-
-    .cube {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-      transform: rotateX(-30deg) rotateY(45deg);
-    }
-
-    .cube-face {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background: white;
-      border: 2px solid #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
-      color: #333;
-      border-radius: 12px;
-      box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
-      user-select: none;
-    }
-
-    .face-1 { transform: rotateY(0deg) translateZ(50px); }
-    .face-2 { transform: rotateY(90deg) translateZ(50px); }
-    .face-3 { transform: rotateY(180deg) translateZ(50px); }
-    .face-4 { transform: rotateY(-90deg) translateZ(50px); }
-    .face-5 { transform: rotateX(90deg) translateZ(50px); }
-    .face-6 { transform: rotateX(-90deg) translateZ(50px); }
-
-    /* Kleiner Effekt beim Klicken */
-    .scene:active .cube {
-      transition: transform 0.1s;
-      transform: scale(0.9) rotateX(-30deg) rotateY(45deg);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" type="image/jpeg" href="static/img/logo.jpg">
+    <title>Seckelverein Appenzell - Home</title>
 </head>
 <body>
-
-<div class="scene" onclick="rollDice()">
-  <div class="cube" id="cube">
-    <div class="cube-face face-1">1</div>
-    <div class="cube-face face-2">2</div>
-    <div class="cube-face face-3">3</div>
-    <div class="cube-face face-4">4</div>
-    <div class="cube-face face-5">5</div>
-    <div class="cube-face face-6">6</div>
-  </div>
-</div>
-
-<script>
-  let isRolling = false;
-
-  function rollDice() {
-    if (isRolling) return;
-    isRolling = true;
-
-    const cube = document.getElementById('cube');
-    const result = Math.floor(Math.random() * 6) + 1;
-
-    // Viel Rotation für den "Wurf"-Effekt
-    const extraSpinsX = (Math.floor(Math.random() * 3) + 3) * 360;
-    const extraSpinsY = (Math.floor(Math.random() * 3) + 3) * 360;
-
-    const rotations = {
-      1: { x: 0, y: 0 },
-      2: { x: 0, y: -90 },
-      3: { x: 0, y: -180 },
-      4: { x: 0, y: 90 },
-      5: { x: -90, y: 0 },
-      6: { x: 90, y: 0 }
-    };
-
-    const target = rotations[result];
-    cube.style.transform = `rotateX(${extraSpinsX + target.x}deg) rotateY(${extraSpinsY + target.y}deg)`;
-
-    setTimeout(() => {
-      isRolling = false;
-    }, 1200);
-  }
-</script>
+    <div class="navbar bg-base-100 shadow-lg px-4 md:px-8">
+        <div class="navbar-start">
+            <a href="index.html" class="flex items-center gap-3 no-underline group">
+                <div class="avatar">
+                    <div class="w-10 h-10 rounded-full">
+                        <img src="static/img/logo.jpg" alt="Seckelverein Logo" class="object-cover"/>
+                    </div>
+                </div>
+                <span class="text-xl font-black italic tracking-tighter uppercase text-base-content group-hover:text-orange-600 transition-colors">
+                    Seckelverein <span class="text-orange-600 hidden sm:inline">Appenzell</span>
+                </span>
+            </a>
+        </div>
+    
+        <div class="navbar-end">
+            
+            <div class="hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 font-bold gap-2 items-center text-base">
+                    <li><a href="calculator.html" class="hover:text-orange-600 transition-all">Rechner</a></li>
+                    <li>
+                        <details class="dropdown dropdown-end">
+                            <summary class="hover:text-orange-600 flex items-center gap-1 cursor-pointer">Strava</summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[2] bg-base-100 rounded-box w-52 mt-4 border border-base-300">
+                                <li>
+                                    <a href="https://www.strava.com/clubs/1619291" target="_blank" class="flex justify-between">
+                                        Club Seite
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 opacity-40"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.strava.com/clubs/1619291/posts/new" target="_blank" class="flex justify-between">
+                                        Neuer Post
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 opacity-40"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details class="dropdown dropdown-end">
+                            <summary class="hover:text-orange-600 flex items-center gap-1 cursor-pointer">Saufspiele</summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[2] bg-base-100 rounded-box w-52 mt-4 border border-base-300">
+                                <li><a href="cube.html">Würfel</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="dropdown dropdown-end lg:hidden">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-64 border border-base-300 font-bold">
+                    <li class="menu-title text-orange-600 uppercase text-xs mt-2">Tools</li>
+                    <li><a href="calculator.html">Rechner</a></li>
+                    <li class="menu-title text-orange-600 uppercase text-xs mt-2">Strava</li>
+                    <li><a href="https://www.strava.com/clubs/1619291" target="_blank">Club Seite</a></li>
+                    <li><a href="https://www.strava.com/clubs/1619291/posts/new" target="_blank">Neuer Post</a></li>
+                    <li class="menu-title text-orange-600 uppercase text-xs mt-2">Saufspiele</li>
+                    <li><a href="cube.html">Würfel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
