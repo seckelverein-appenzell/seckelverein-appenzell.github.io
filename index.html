@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
+    <html lang="de" data-theme="light"></html>
     <link rel="icon" type="image/jpeg" href="static/img/logo.jpg">
     <title>Seckelverein Appenzell - Home</title>
 </head>
 
 <body class="min-h-screen flex flex-col bg-base-100">
-    <div class="navbar bg-base-100 shadow-lg px-4 md:px-8">
+    <div class="navbar bg-base-100 shadow-lg px-4 md:px-8 fixed top-0 z-[100]">
         <div class="navbar-start">
             <a href="index.html" class="flex items-center gap-3 no-underline group">
                 <div class="avatar">
@@ -27,8 +28,7 @@
         </div>
 
         <div class="navbar-end">
-
-            <div class="hidden lg:flex">
+            <div class="hidden md:flex">
                 <ul class="menu menu-horizontal px-1 font-bold gap-2 items-center text-base">
                     <li><a href="calculator.html" class="hover:text-orange-600 transition-all">Rechner</a></li>
                     <li>
@@ -75,29 +75,78 @@
                 </ul>
             </div>
 
-            <div class="dropdown dropdown-end lg:hidden">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
+            <div class="dropdown dropdown-end md:hidden">
+                <label class="btn btn-ghost btn-circle swap swap-rotate">
+                    <input type="checkbox" id="mobile-menu-checkbox" class="peer" />
+            
+                    <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512">
+                        <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
                     </svg>
-                </div>
-                <ul tabindex="0"
-                    class="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-64 border border-base-300 font-bold">
-                    <li class="menu-title text-orange-600 uppercase text-xs mt-2">Tools</li>
-                    <li><a href="calculator.html">Rechner</a></li>
-                    <li class="menu-title text-orange-600 uppercase text-xs mt-2">Strava</li>
-                    <li><a href="https://www.strava.com/clubs/1619291" target="_blank">Club Seite</a></li>
-                    <li><a href="https://www.strava.com/clubs/1619291/posts/new" target="_blank">Neuer Post</a></li>
-                    <li class="menu-title text-orange-600 uppercase text-xs mt-2">Saufspiele</li>
-                    <li><a href="cube.html">Würfel</a></li>
-                </ul>
+            
+                    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512">
+                        <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                    </svg>
+            
+                    <ul class="menu bg-base-100 rounded-box w-64 shadow-2xl border border-base-300 absolute top-14 right-0 mt-3 hidden peer-checked:block z-[50] font-bold text-left">
+                        <li>
+                            <h2 class="menu-title text-orange-600 uppercase italic">Tools</h2>
+                            <ul>
+                                <li><a href="calculator.html">Rechner</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="menu-title text-orange-600 uppercase italic border-t border-base-200 mt-2 pt-2">Strava</h2>
+                            <ul>
+                                <li><a href="https://www.strava.com/clubs/1619291" target="_blank">Club Seite</a></li>
+                                <li><a href="https://www.strava.com/clubs/1619291/posts/new" target="_blank">Neuer Post</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 class="menu-title text-orange-600 uppercase italic border-t border-base-200 mt-2 pt-2">Saufspiele</h2>
+                            <ul>
+                                <li><a href="cube.html">Würfel</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </label>
             </div>
         </div>
     </div>
 
     <main class="flex-1 container mx-auto px-4 py-8 md:px-8 md:py-12 max-w-4xl">
+        <section class="hero min-h-[80vh] bg-base-100 flex items-center justify-center py-12">
+            <div class="hero-content text-center max-w-3xl px-4">
+                <div class="max-w-md md:max-w-2xl">
+                    <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-tight mb-6">
+                        Wir sind der <br>
+                        <span class="text-orange-600">Seckelverein</span>
+                    </h1>
+        
+                    <div class="text-2xl md:text-4xl font-bold uppercase tracking-widest opacity-90 h-12 text-rotate">
+                        <span class="text-rotate">
+                            Dein Antrieb zum
+                            <span class="inline-grid [grid-template-columns:1fr] [grid-template-rows:1fr] overflow-hidden text-orange-600">
+                                <span class="animate-text-rotate [grid-area:1/1] [animation-delay:0s]">Laufen</span>
+                                <span class="animate-text-rotate [grid-area:1/1] [animation-delay:2s]">Schwitzen</span>
+                                <span class="animate-text-rotate [grid-area:1/1] [animation-delay:4s]">Finishen</span>
+                                <span class="animate-text-rotate [grid-area:1/1] [animation-delay:6s]">Blechen</span>
+                            </span>
+                        </span>
+                    </div>
+
+                    <p class="py-8 text-sm md:text-base opacity-70 leading-relaxed max-w-lg mx-auto">
+                        Wer bei uns die wenigsten Kilometer macht, zahlt. <br>
+                        Keine Ausreden, nur Resultate.
+                    </p>
+        
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="#berechnung" class="btn btn-primary rounded-full px-8">Rechner</a>
+                        <a href="#reglement" class="btn btn-outline rounded-full px-8">Regeln</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="mb-12">
             <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-6 flex items-center gap-3">
                 <span class="w-2 h-8 bg-orange-600"></span>
@@ -107,12 +156,11 @@
             <div class="carousel carousel-center w-full p-4 space-x-4 rounded-box overflow-x-auto snap-x">
                 
                 <div class="carousel-item snap-center w-64">
-                    <div class="card bg-base-200 shadow-xl border border-base-300 overflow-hidden w-full h-full">
+                    <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
                                 <div class="w-28 h-28 rounded-full ring ring-orange-600 ring-offset-base-100 ring-offset-2 overflow-hidden shadow-2xl">
                                     <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/175544187/38626966/2/large.jpg" 
-                                         alt="Liam" 
                                          class="object-cover w-full h-full" />
                                 </div>
                             </div>
@@ -134,25 +182,24 @@
                 </div>
         
                 <div class="carousel-item snap-center w-64">
-                    <div class="card bg-base-200 shadow-xl border border-base-300 overflow-hidden w-full h-full">
+                    <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
                                 <div class="w-28 h-28 rounded-full ring ring-orange-600 ring-offset-base-100 ring-offset-2 overflow-hidden shadow-2xl">
-                                    <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/175544187/38626966/2/large.jpg" 
-                                         alt="Liam" 
+                                    <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/169667854/38577240/4/large.jpg" 
                                          class="object-cover w-full h-full" />
                                 </div>
                             </div>
                         </div>
                         <div class="card-body items-center text-center p-6">
-                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Liam</h3>
+                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Tim</h3>
                             <p class="text-[10px] uppercase opacity-50 font-bold mb-4 tracking-[0.2em]">Mitglied</p>
                             
                             <div class="flex gap-5 mt-auto">
-                                <a href="https://www.instagram.com/liamm__m1/" target="_blank" class="text-base-content/70 hover:text-pink-600 transition-all hover:scale-110">
+                                <a href="https://www.instagram.com/tim.signer/" target="_blank" class="text-base-content/70 hover:text-pink-600 transition-all hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
                                 </a>
-                                <a href="https://www.strava.com/athletes/175544187" target="_blank" class="text-base-content/70 hover:text-orange-600 transition-all hover:scale-110">
+                                <a href="https://www.strava.com/athletes/169667854" target="_blank" class="text-base-content/70 hover:text-orange-600 transition-all hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
                                 </a>
                             </div>
@@ -161,25 +208,24 @@
                 </div>
 
                 <div class="carousel-item snap-center w-64">
-                    <div class="card bg-base-200 shadow-xl border border-base-300 overflow-hidden w-full h-full">
+                    <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
                                 <div class="w-28 h-28 rounded-full ring ring-orange-600 ring-offset-base-100 ring-offset-2 overflow-hidden shadow-2xl">
-                                    <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/175544187/38626966/2/large.jpg" 
-                                         alt="Liam" 
+                                    <img src="https://dgtzuqphqg23d.cloudfront.net/Z7rLFCTrrdCIplKDaQF51s9_NCWRhujzUDMCvM8Zleg-1536x2048.jpg" 
                                          class="object-cover w-full h-full" />
                                 </div>
                             </div>
                         </div>
                         <div class="card-body items-center text-center p-6">
-                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Liam</h3>
+                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Benjamin</h3>
                             <p class="text-[10px] uppercase opacity-50 font-bold mb-4 tracking-[0.2em]">Mitglied</p>
                             
                             <div class="flex gap-5 mt-auto">
-                                <a href="https://www.instagram.com/liamm__m1/" target="_blank" class="text-base-content/70 hover:text-pink-600 transition-all hover:scale-110">
+                                <a href="https://www.instagram.com/graf.beni4/" target="_blank" class="text-base-content/70 hover:text-pink-600 transition-all hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
                                 </a>
-                                <a href="https://www.strava.com/athletes/175544187" target="_blank" class="text-base-content/70 hover:text-orange-600 transition-all hover:scale-110">
+                                <a href="https://www.strava.com/athletes/175544861" target="_blank" class="text-base-content/70 hover:text-orange-600 transition-all hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
                                 </a>
                             </div>
@@ -188,25 +234,24 @@
                 </div>
 
                 <div class="carousel-item snap-center w-64">
-                    <div class="card bg-base-200 shadow-xl border border-base-300 overflow-hidden w-full h-full">
+                    <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
                                 <div class="w-28 h-28 rounded-full ring ring-orange-600 ring-offset-base-100 ring-offset-2 overflow-hidden shadow-2xl">
-                                    <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/175544187/38626966/2/large.jpg" 
-                                         alt="Liam" 
+                                    <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/71847984/17528868/2/large.jpg" 
                                          class="object-cover w-full h-full" />
                                 </div>
                             </div>
                         </div>
                         <div class="card-body items-center text-center p-6">
-                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Liam</h3>
+                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Livio</h3>
                             <p class="text-[10px] uppercase opacity-50 font-bold mb-4 tracking-[0.2em]">Mitglied</p>
                             
                             <div class="flex gap-5 mt-auto">
-                                <a href="https://www.instagram.com/liamm__m1/" target="_blank" class="text-base-content/70 hover:text-pink-600 transition-all hover:scale-110">
+                                <a href="https://www.instagram.com/livio_dorig/" target="_blank" class="text-base-content/70 hover:text-pink-600 transition-all hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
                                 </a>
-                                <a href="https://www.strava.com/athletes/175544187" target="_blank" class="text-base-content/70 hover:text-orange-600 transition-all hover:scale-110">
+                                <a href="https://www.strava.com/athletes/71847984" target="_blank" class="text-base-content/70 hover:text-orange-600 transition-all hover:scale-110">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
                                 </a>
                             </div>
