@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
-    <html lang="de" data-theme="light"></html>
     <link rel="icon" type="image/jpeg" href="static/img/logo.jpg">
     <title>Seckelverein Appenzell - Home</title>
 </head>
@@ -30,7 +29,7 @@
         <div class="navbar-end">
             <div class="hidden md:flex">
                 <ul class="menu menu-horizontal px-1 font-bold gap-2 items-center text-base">
-                    <li><a href="calculator.html" class="hover:text-orange-600 transition-all">Rechner</a></li>
+                    <li><a href="calculator.html" class="hover:text-orange-600">Rechner</a></li>
                     <li>
                         <details class="dropdown dropdown-end">
                             <summary class="hover:text-orange-600 flex items-center gap-1 cursor-pointer">Strava
@@ -167,9 +166,8 @@
                 Die <span class="text-orange-600">Seckel</span>
             </h2>
         
-            <div class="carousel carousel-center w-full p-4 space-x-4 rounded-box overflow-x-auto snap-x">
-                
-                <div class="carousel-item snap-center w-64">
+            <div id="seckel-carousel" class="carousel carousel-center w-full p-4 space-x-4 overflow-x-auto snap-x scroll-smooth">                
+                <div id="item1" class="carousel-item snap-center w-64">
                     <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
@@ -193,9 +191,10 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
         
-                <div class="carousel-item snap-center w-64">
+                <div id="item2" class="carousel-item snap-center w-64">
                     <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
@@ -221,7 +220,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item snap-center w-64">
+                <div id="item3" class="carousel-item snap-center w-64">
                     <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
@@ -247,7 +246,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item snap-center w-64">
+                <div id="item4" class="carousel-item snap-center w-64">
                     <div class="card bg-base-200 shadow-sm border border-base-300 overflow-hidden w-full h-full">
                         <div class="flex justify-center pt-8">
                             <div class="avatar">
@@ -272,12 +271,46 @@
                         </div>
                     </div>
                 </div>
-        
+
+                <div id="item5" class="carousel-item snap-center w-64">
+                    <div class="card bg-orange-600 text-white shadow-sm border border-orange-500 overflow-hidden w-full h-full">
+                        <div class="flex justify-center pt-10">
+                            <div class="w-28 h-28 rounded-full bg-white/10 border-2 border-dashed border-white/50 shadow-inner flex items-center justify-center relative group-hover:scale-105 transition-transform duration-300">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-white/90">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                </svg>
+                        
+                                <div class="absolute inset-0 rounded-full bg-white/20 animate-ping opacity-20 pointer-events-none"></div>
+                            </div>
+                        </div>
+                        <div class="card-body items-center text-center p-6">
+                            <h3 class="font-black italic uppercase tracking-tighter text-xl leading-tight">Werde ein Seckel</h3>
+                            <p class="text-[10px] uppercase text-white/70 font-bold mb-4 tracking-[0.2em]">Ready to run?</p>
+                            
+                            <div class="mt-auto w-full">
+                                <button onclick="join_modal.showModal()" class="btn btn-sm bg-white text-orange-600 border-none rounded-full hover:bg-orange-50 w-full font-black italic uppercase">
+                                    Jetzt beitreten
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
             
-            <p class="text-center text-[10px] uppercase tracking-widest opacity-40 mt-4 animate-pulse">
-                Swipe zum Durchschauen →
-            </p>
+            <div class="flex w-full justify-center gap-4 py-4">
+                <button 
+                    onclick="const c = document.getElementById('seckel-carousel'); c.scrollBy({ left: -c.offsetWidth / 2, behavior: 'smooth' })" 
+                    class="btn btn-circle bg-base-200 border-none shadow-md hover:bg-orange-600 hover:text-white transition-all">
+                    ❮
+                </button>
+                
+                <button 
+                    onclick="const c = document.getElementById('seckel-carousel'); c.scrollBy({ left: c.offsetWidth / 2, behavior: 'smooth' })" 
+                    class="btn btn-circle bg-base-200 border-none shadow-md hover:bg-orange-600 hover:text-white transition-all">
+                    ❯
+                </button>
+            </div>
         </section>
         
             </div>
@@ -408,6 +441,30 @@
             </div>
         </section>
     </main>
+
+    <dialog id="join_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box border-t-4 border-orange-600">
+            <h3 class="font-black uppercase italic text-2xl tracking-tighter">Werde Teil der Crew!</h3>
+            <p class="py-4 text-base leading-relaxed">
+                Du willst auch mitschwitzen (und vielleicht mal blechen)? Wir freuen uns auf neue Gesichter! 
+                <br><br>
+                Schreib uns einfach eine Bewerbung an:
+                <br>
+                <span class="block mt-2 font-bold text-orange-600 text-lg">seckelverein-appenzell@gmail.com</span>
+            </p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-ghost rounded-full uppercase italic font-bold">Abbrechen</button>
+                    <a href="mailto:seckelverein-appenzell@gmail.com" class="btn btn-primary rounded-full uppercase italic font-black shadow-lg">
+                        E-Mail senden
+                    </a>
+                </form>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
 
     <footer class="footer items-center p-4 bg-base-200 text-base-content border-t border-base-300">
         <div class="items-center grid-flow-col mx-auto flex gap-8">
