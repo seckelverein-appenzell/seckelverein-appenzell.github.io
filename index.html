@@ -200,13 +200,13 @@
             
             <div class="flex w-full justify-center gap-4 py-4">
                 <button 
-                    onclick="const c = document.getElementById('seckel-carousel'); c.scrollBy({ left: -c.offsetWidth / 2, behavior: 'smooth' })" 
+                    onclick="{ const c = document.getElementById('seckel-carousel'); c.scrollBy({ left: -c.offsetWidth / 2, behavior: 'smooth' }); }" 
                     class="btn btn-circle bg-base-200 border-none shadow-md hover:bg-orange-600 hover:text-white transition-all">
                     ❮
                 </button>
                 
                 <button 
-                    onclick="const c = document.getElementById('seckel-carousel'); c.scrollBy({ left: c.offsetWidth / 2, behavior: 'smooth' })" 
+                    onclick="{ const c = document.getElementById('seckel-carousel'); c.scrollBy({ left: c.offsetWidth / 2, behavior: 'smooth' }); }" 
                     class="btn btn-circle bg-base-200 border-none shadow-md hover:bg-orange-600 hover:text-white transition-all">
                     ❯
                 </button>
