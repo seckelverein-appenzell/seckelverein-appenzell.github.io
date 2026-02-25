@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/jpeg" href="static/img/logo.jpg">
     <script src="static/js/calculator.js"></script>
+    <script src="static/js/members.js"></script>
     <title>Seckelverein Appenzell - Rechner</title>
 </head>
 
@@ -139,8 +140,48 @@
             <h1 class="text-4xl font-black uppercase tracking-tighter mb-2">Strava <span class="text-orange-600">Post Generator</span></h1>
             <p class="opacity-60">Werte die Woche aus und kopiere den fertigen Post.</p>
         </div>
+
+        <div id="member-container" class="space-y-4"></div>
     
-        <div class="card bg-base-100 border border-base-300 shadow-sm mb-4 overflow-hidden transition-all duration-300" id="card-0">
+    <div class="space-y-8 mt-16 max-w-2xl mx-auto">
+    
+    <div class="group">
+        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-2 block ml-1">Titel</label>
+        <div class="relative flex items-center bg-zinc-50 rounded-2xl border border-zinc-100 p-2 transition-all duration-300 focus-within:border-orange-500/30 focus-within:bg-white focus-within:shadow-xl focus-within:shadow-orange-500/5">
+            <input id="post-title" type="text" 
+                class="w-full bg-transparent px-4 py-2 text-sm font-bold text-zinc-800 focus:outline-none" 
+                readonly value="Lade KW...">
+            
+            <button onclick="copyTitle()" class="btn btn-ghost btn-circle text-zinc-400 hover:text-orange-600 hover:bg-orange-50 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="group">
+        <div class="flex items-center justify-between mb-2 ml-1">
+            <label class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">Post</label>
+            <div class="h-[1px] flex-1 bg-zinc-100 mx-4"></div>
+            <button onclick="copyPost()" class="btn btn-sm btn-ghost gap-2 text-[10px] font-black uppercase tracking-widest text-orange-600 hover:bg-orange-50 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Kopieren
+            </button>
+        </div>
+        
+        <div class="relative bg-zinc-50 rounded-[2rem] border border-zinc-100 p-4 transition-all duration-300 focus-within:bg-white focus-within:border-orange-500/30 focus-within:shadow-2xl focus-within:shadow-orange-500/10">
+            <textarea id="post-output" 
+                class="textarea textarea-ghost w-full h-72 p-4 font-mono text-sm leading-relaxed text-zinc-700 bg-transparent resize-none focus:outline-none border-none focus:bg-transparent" 
+                readonly></textarea>
+        </div>
+    </div>
+</div>
+
+    <div id="toast-container" class="toast toast-bottom toast-center z-50"></div>
+        <!-- <div class="card bg-base-100 border border-base-300 shadow-sm mb-4 overflow-hidden transition-all duration-300" id="card-0">
             <div class="card-body p-4">
                 
                 <div class="flex items-center justify-between mb-5">
@@ -188,7 +229,7 @@
                 </div>
                 
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer class="footer items-center p-4 bg-base-200 text-base-content border-t border-base-300">
