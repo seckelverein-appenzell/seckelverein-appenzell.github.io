@@ -93,6 +93,14 @@ class SiteNavbar extends HTMLElement {
                 link.classList.add('text-orange-600');
             }
         });
+
+        document.addEventListener('click', (e) => {
+            this.querySelectorAll('details').forEach(details => {
+                if (!details.contains(e.target)) {
+                    details.removeAttribute('open');
+                }
+            });
+        });
     }
 }
 
