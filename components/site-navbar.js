@@ -3,7 +3,7 @@ class SiteNavbar extends HTMLElement {
         this.innerHTML = `
       <nav class="navbar bg-base-100 shadow-lg px-4 md:px-8 fixed top-0 z-[100]">
         <div class="navbar-start">
-          <a href="/index.html" class="flex items-center gap-3 no-underline group">
+          <a href="/" class="flex items-center gap-3 no-underline group">
             <div class="avatar">
               <div class="w-10 h-10 rounded-full">
                 <img src="/static/img/logo.jpg" alt="Seckelverein Logo" class="object-cover" />
