@@ -26,5 +26,12 @@ const SEKKEL_MEMBERS = [
         image: "https://dgalywyr863hv.cloudfront.net/pictures/athletes/71847984/17528868/2/large.jpg",
         instagram: "https://www.instagram.com/livio_dorig/",
         strava: "https://www.strava.com/athletes/71847984"
+    },
+        {
+        name: "Loris",
+        role: "Mitglied",
+        image: "https://www.fcappenzell.ch/files/images/News/2025-10-11_Junioren%20A%2C%20Teambild.jpg",
+        instagram: "https://www.instagram.com/lorisgossner/",
+        strava: "https://www.strava.com/athletes/162417561"
     }
 ];
