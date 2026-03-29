@@ -30,7 +30,7 @@ const SEKKEL_MEMBERS = [
         {
         name: "Loris",
         role: "Mitglied",
-        image: "https://www.fcappenzell.ch/files/images/News/2025-10-11_Junioren%20A%2C%20Teambild.jpg",
+        image: "https://dgalywyr863hv.cloudfront.net/pictures/athletes/162417561/44623216/1/large.jpg",
         instagram: "https://www.instagram.com/lorisgossner/",
         strava: "https://www.strava.com/athletes/162417561"
     }
