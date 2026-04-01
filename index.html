@@ -512,9 +512,12 @@
         });
     }
 
-    setTimeout(() => {
-        openDonateModal();
-    }, 3000);
+    if (!localStorage.getItem('donate_modal_shown')) {
+        setTimeout(() => {
+            openDonateModal();
+            localStorage.setItem('donate_modal_shown', '1');
+        }, 3000);
+    }
 </script>
 
 </html>
