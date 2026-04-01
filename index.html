@@ -12,6 +12,7 @@
     <script src="components/site-navbar.js"></script>
     <script src="components/site-footer.js"></script>
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/jpeg" href="static/img/logo.jpg">
@@ -22,7 +23,7 @@
 
     <site-navbar></site-navbar>
 <!-- Floating Spenden-Button -->
-<button onclick="umami.track('spende-click'); donate_modal.showModal()"
+<button onclick="umami.track('spende-click'); openDonateModal()"
     class="fixed bottom-6 right-6 z-50 btn rounded-full bg-orange-600 text-white border-none shadow-xl hover:bg-orange-700 font-black italic uppercase gap-2">
     💛 Spenden
 </button>
@@ -501,8 +502,18 @@
 </dialog>
 
 <script>
-    setTimeout(() => {
+    function openDonateModal() {
         donate_modal.showModal();
+        confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#f59e0b', '#fbbf24', '#fde68a', '#ffffff']
+        });
+    }
+
+    setTimeout(() => {
+        openDonateModal();
     }, 3000);
 </script>
 
