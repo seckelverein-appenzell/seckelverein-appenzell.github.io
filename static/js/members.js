@@ -33,5 +33,12 @@ const SEKKEL_MEMBERS = [
         image: "https://dgalywyr863hv.cloudfront.net/pictures/athletes/162417561/44623216/1/large.jpg",
         instagram: "https://www.instagram.com/lorisgossner/",
         strava: "https://www.strava.com/athletes/162417561"
+    },
+    {
+        name: "Louis",
+        role: "Mitglied",
+        image: "https://dgalywyr863hv.cloudfront.net/pictures/athletes/175544466/38785668/1/large.jpg",
+        instagram: "https://www.instagram.com/louis_m_o_c_k/",
+        strava: "https://www.strava.com/athletes/175544466"
     }
 ];

@@ -4,49 +4,50 @@ let dqStatus = {};
 function renderMembers() {
     const container = document.getElementById('member-container');
     container.innerHTML = SEKKEL_MEMBERS.map((member, index) => `
-        <div class="card bg-base-100 border border-base-300 shadow-sm overflow-hidden transition-all duration-300" id="card-${index}">
+        <div class="card bg-base-100 border border-base-300 shadow-sm overflow-hidden" id="card-${index}">
             <div class="card-body p-4">
-                <div class="flex items-center justify-between mb-5">
-                    <div class="flex items-center gap-3">
-                        <div class="avatar cursor-pointer relative group" onclick="toggleDQ(${index})">
-                            <div id="dq-overlay-${index}" 
-                                class="absolute inset-0 z-20 bg-red-600/80 rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="w-7 h-7">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl ring-2 ring-orange-600 ring-offset-2 overflow-hidden">
-                                <img src="${member.image}" class="object-cover h-full w-full" />
-                            </div>
+                <div class="flex items-center gap-3">
+                    <div class="avatar cursor-pointer relative group flex-shrink-0" onclick="toggleDQ(${index})">
+                        <div id="dq-overlay-${index}" 
+                            class="absolute inset-0 z-20 bg-red-600/80 rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-black italic uppercase tracking-tighter leading-none">
-                                ${member.name}
-                            </h3>
-                            <p class="text-[10px] font-bold opacity-40 uppercase tracking-widest mt-1">${member.role}</p>
+                        <div class="w-12 h-12 rounded-xl ring-2 ring-orange-600 ring-offset-2 overflow-hidden">
+                            <img src="${member.image}" class="object-cover h-full w-full" />
                         </div>
                     </div>
-                    <div class="text-right">
+
+                    <div class="flex-shrink-0 w-24">
+                        <h3 class="text-lg font-black italic uppercase tracking-tighter leading-none truncate">
+                            ${member.name}
+                        </h3>
+                        <p class="text-[10px] font-bold opacity-40 uppercase tracking-widest mt-1 truncate">${member.role}</p>
+                    </div>
+
+                    <div class="flex gap-3 flex-1" id="inputs-${index}">
+                        <div class="relative flex-1">
+                            <span class="absolute left-3 top-[-8px] bg-base-100 px-1 text-[9px] font-bold uppercase opacity-50 z-10">Distanz</span>
+                            <input type="number" step="0.1" 
+                                oninput="calculateSingleTotal(${index})" 
+                                class="km-input input input-bordered input-md w-full focus:outline-orange-600 font-bold bg-base-50/30" 
+                                placeholder="0.0">
+                        </div>
+                        <div class="relative flex-1">
+                            <span class="absolute left-3 top-[-8px] bg-base-100 px-1 text-[9px] font-bold uppercase opacity-50 z-10">Höhenmeter</span>
+                            <input type="number" step="1" 
+                                oninput="calculateSingleTotal(${index})" 
+                                class="hm-input input input-bordered input-md w-full focus:outline-orange-600 font-bold bg-base-50/30" 
+                                placeholder="0">
+                        </div>
+                    </div>
+
+                <div class="text-right flex-shrink-0 w-24">
                         <p class="text-[10px] font-black uppercase opacity-40 leading-none mb-1 text-orange-600">Total L-KM</p>
                         <div class="text-3xl font-black italic tracking-tighter leading-none">
                             <span id="total-${index}">0.0</span>
                         </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3" id="inputs-${index}">
-                    <div class="relative">
-                        <span class="absolute left-3 top-[-8px] bg-base-100 px-1 text-[9px] font-bold uppercase opacity-50 z-10">Distanz</span>
-                        <input type="number" step="0.1" 
-                               oninput="calculateSingleTotal(${index})" 
-                               class="km-input input input-bordered input-md w-full focus:outline-orange-600 font-bold bg-base-50/30" 
-                               placeholder="0.0">
-                    </div>
-                    <div class="relative">
-                        <span class="absolute left-3 top-[-8px] bg-base-100 px-1 text-[9px] font-bold uppercase opacity-50 z-10">Höhenmeter</span>
-                        <input type="number" step="1" 
-                               oninput="calculateSingleTotal(${index})" 
-                               class="hm-input input input-bordered input-md w-full focus:outline-orange-600 font-bold bg-base-50/30" 
-                               placeholder="0">
                     </div>
                 </div>
             </div>
