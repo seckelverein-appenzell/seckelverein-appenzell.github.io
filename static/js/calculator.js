@@ -1,4 +1,5 @@
 let dqStatus = {};
+const SEASON = "Season 3";
 
 // 1. Karten generieren
 function renderMembers() {
@@ -181,7 +182,7 @@ function initHeader() {
     const kw = getLastWeekNumber();
     const titleField = document.getElementById('post-title');
     if (titleField) {
-        titleField.value = `Kalenderwoche ${kw} - Blecherliste`;
+        titleField.value = `${SEASON} - Kalenderwoche ${kw} - Blecherliste`;
     }
 }
 
